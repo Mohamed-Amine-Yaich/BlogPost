@@ -1,0 +1,104 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-smappbymedamine01-staging-114010-authRole",
+      "UnauthRoleArn": "arn:aws:iam::040673270257:role/amplify-smappbymedamine01-staging-114010-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::040673270257:role/amplify-smappbymedamine01-staging-114010-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-smappbymedamine01-staging-114010-deployment",
+      "UnauthRoleName": "amplify-smappbymedamine01-staging-114010-unauthRole",
+      "StackName": "amplify-smappbymedamine01-staging-114010",
+      "StackId": "arn:aws:cloudformation:us-east-1:040673270257:stack/amplify-smappbymedamine01-staging-114010/fbe7b070-38d8-11ed-89da-0a7c47c9ec53",
+      "AmplifyAppId": "dljoj0bkmucwx"
+    }
+  },
+  "auth": {
+    "smAppByMedAmine01": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 6,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "output": {
+        "UserPoolId": "us-east-1_w3or1A346",
+        "AppClientIDWeb": "2t04b6ti4no9rq6t40qilf678d",
+        "AppClientID": "7s1mmsb6vtn2c7mgao8ko6ngcc",
+        "IdentityPoolId": "us-east-1:b38e429e-8ede-4741-93d7-c7f2546cbced",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:040673270257:userpool/us-east-1_w3or1A346",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "smAppByMedAmine01"
+      },
+      "lastPushTimeStamp": "2022-10-03T00:09:16.019Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-smappbymedamine01-staging-114010-deployment/amplify-cfn-templates/auth/smAppByMedAmine01-cloudformation-template.json",
+        "logicalId": "authsmAppByMedAmine01"
+      },
+      "lastPushDirHash": "umo62m/VJLaFjLRrkPp7WX5/XVM="
+    }
+  },
+  "api": {
+    "smAppByMedAmine01": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "ktym5moebjctpftsn3sdrv3pre",
+        "GraphQLAPIEndpointOutput": "https://nbs5uqum4jf3rgznamp5pcbxvi.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-gb63lzunnjdgdlz2u5sevneiq4"
+      },
+      "lastPushTimeStamp": "2022-10-03T00:09:16.029Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-smappbymedamine01-staging-114010-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apismAppByMedAmine01"
+      }
+    }
+  },
+  "storage": {
+    "s3smappbymedamine01storageaddc68b7": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "lastPushTimeStamp": "2022-10-03T00:09:18.888Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-smappbymedamine01-staging-114010-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storages3smappbymedamine01storageaddc68b7"
+      },
+      "output": {
+        "BucketName": "smappbymedamine01-storage-addc68b7114010-staging",
+        "Region": "us-east-1"
+      },
+      "lastPushDirHash": "g3v7LJvI/UNExrzgt6ayaEhiids="
+    }
+  }
+}
