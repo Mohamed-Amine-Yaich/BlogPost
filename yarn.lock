@@ -3020,6 +3020,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"BlogPostRnApp@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "BlogPostRnApp@workspace:."
+  dependencies:
+    "@babel/core": ^7.20.0
+    "@babel/preset-env": ^7.20.0
+    "@babel/runtime": ^7.20.0
+    "@react-native/babel-preset": 0.74.83
+    "@react-native/eslint-config": 0.74.83
+    "@react-native/metro-config": 0.74.83
+    "@react-native/typescript-config": 0.74.83
+    "@reduxjs/toolkit": ^2.2.5
+    "@types/react": ^18.2.6
+    "@types/react-test-renderer": ^18.0.0
+    babel-jest: ^29.6.3
+    eslint: ^8.19.0
+    jest: ^29.6.3
+    prettier: 2.8.8
+    react: 18.2.0
+    react-native: 0.74.1
+    react-redux: ^9.1.2
+    react-test-renderer: 18.2.0
+    typescript: 5.0.4
+  languageName: unknown
+  linkType: soft
+
 "abbrev@npm:^2.0.0":
   version: 2.0.0
   resolution: "abbrev@npm:2.0.0"
@@ -5501,32 +5527,6 @@ __metadata:
   checksum: cadc5eea5d7d9bc2342e93aae9f31f04c196afebb11bde97448327049f492cd7081e18623ae71388aac9cd237b692ca3a105be9c68ac39c1dec679d7409e33eb
   languageName: node
   linkType: hard
-
-"introToReduxToolkit@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "introToReduxToolkit@workspace:."
-  dependencies:
-    "@babel/core": ^7.20.0
-    "@babel/preset-env": ^7.20.0
-    "@babel/runtime": ^7.20.0
-    "@react-native/babel-preset": 0.74.83
-    "@react-native/eslint-config": 0.74.83
-    "@react-native/metro-config": 0.74.83
-    "@react-native/typescript-config": 0.74.83
-    "@reduxjs/toolkit": ^2.2.5
-    "@types/react": ^18.2.6
-    "@types/react-test-renderer": ^18.0.0
-    babel-jest: ^29.6.3
-    eslint: ^8.19.0
-    jest: ^29.6.3
-    prettier: 2.8.8
-    react: 18.2.0
-    react-native: 0.74.1
-    react-redux: ^9.1.2
-    react-test-renderer: 18.2.0
-    typescript: 5.0.4
-  languageName: unknown
-  linkType: soft
 
 "invariant@npm:^2.2.4":
   version: 2.2.4

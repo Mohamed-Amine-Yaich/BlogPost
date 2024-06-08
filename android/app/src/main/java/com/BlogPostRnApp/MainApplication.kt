@@ -1,4 +1,4 @@
-package com.introtoreduxtoolkit
+package com.BlogPostRnApp
 
 import android.app.Application
 import com.facebook.react.PackageList
