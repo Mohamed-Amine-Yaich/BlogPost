@@ -25,6 +25,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import { Counter } from './src/app/features/counter/Counter';
+import PostsList from './src/app/features/posts/postsList';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -78,8 +79,9 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Counter />
-         {/*  <Section title="Step One">
+         
+          <PostsList />
+          {/*  <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
           </Section>
