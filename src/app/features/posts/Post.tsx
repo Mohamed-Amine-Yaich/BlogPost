@@ -21,8 +21,7 @@ const Post = ({ post }: PostProps) => {
 
 
     return (
-        <TouchableOpacity style={styles.post} key={post.id}
-            onPress={() => { console.log('navigate to user profile') }}
+        <View style={styles.post} key={post.id}
 
         >
             {/* Header */}
@@ -65,7 +64,10 @@ const Post = ({ post }: PostProps) => {
                 {/* Buttons Row  */}
                 <View style={styles.buttonsRow}>
                     <TouchableOpacity
-                        onPress={() => setIsLiked(!isLiked)}
+                        onPress={() => {
+                            setIsLiked(!isLiked)
+                            console.log('like press')
+                        }}
                         style={styles.iconButton}
                     >
                         {/* <AntDesign
@@ -83,22 +85,32 @@ const Post = ({ post }: PostProps) => {
                         </Text>
                     </TouchableOpacity>
 
-                    <View style={styles.iconButton}>
+                    <TouchableOpacity
+                        onPress={() => {
+                            console.log('comment press')
+                        }}
+                        style={styles.iconButton}
+                    >
                         {/* <FontAwesome5 name="comment-alt" size={18} color="gray" /> */}
                         <Text style={styles.iconButtonText}>Comment</Text>
-                    </View>
+                    </TouchableOpacity>
 
-                    <View style={styles.iconButton}>
+                    <TouchableOpacity
+                        onPress={() => {
+                            console.log('share press')
+                        }}
+                        style={styles.iconButton}
+                    >
                         {/* <MaterialCommunityIcons
                         name="share-outline"
                         size={18}
                         color="gray"
                     /> */}
                         <Text style={styles.iconButtonText}>Share</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
-        </TouchableOpacity>
+        </View>
     );
 };
 
