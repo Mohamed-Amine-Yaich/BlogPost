@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FlatList, StyleSheet, TouchableOpacity, } from 'react-native';
+import { FlatList, StyleSheet, Text, TouchableOpacity, } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import Post from './Post';
@@ -19,7 +19,10 @@ const PostsList = (props: PostsListProps) => {
     const newContent =
         <>
             <FlatList
+                
                 data={posts}
+                ListHeaderComponent={() => <Text
+                    style={styles.postListHeader}>Posts</Text>}
                 renderItem={({ item: post }) =>
 
                     <Post post={post} key={post.id} />
@@ -44,6 +47,11 @@ export default PostsList;
 
 
 const styles = StyleSheet.create({
+    postListHeader: {
+        padding: 20,
+        fontWeight: 'bold',
+        fontSize: 16
+    },
     post: {
         marginVertical: 5,
         backgroundColor: "#fff",
