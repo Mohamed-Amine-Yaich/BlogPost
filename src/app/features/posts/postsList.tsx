@@ -1,15 +1,24 @@
 import * as React from 'react';
-import { FlatList, StyleSheet, Text, TouchableOpacity, } from 'react-native';
+import { FlatList, Image, Pressable, StyleSheet, Text, TouchableOpacity, } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import Post from './Post';
+import {  useNavigation } from '@react-navigation/native';
+import { SCREENS } from '../../../../constant/constants';
 
 interface PostsListProps { }
+
+const userImage = "../../../../assets/dummy_img/user.png"
+
 
 
 
 const PostsList = (props: PostsListProps) => {
+    const nav = useNavigation()
+    const handleHeaderPress = () => {
+        nav.navigate(SCREENS.CREATE_POST_SCREEN.name)
 
+    }
 
     const posts = useSelector((state: RootState) => state.posts)
 
@@ -19,10 +28,21 @@ const PostsList = (props: PostsListProps) => {
     const newContent =
         <>
             <FlatList
-                
+
                 data={posts}
-                ListHeaderComponent={() => <Text
-                    style={styles.postListHeader}>Posts</Text>}
+                ListHeaderComponent={() => <Pressable onPress={handleHeaderPress} style={styles.header}>
+
+
+                    <Image source={require(userImage)} style={styles.profileImage} />
+
+                    <Text style={styles.name}>What's on your mind?</Text>
+                    {/* <Entypo
+                        name="images"
+                        size={24}
+                        color="limegreen"
+                        style={styles.icon}
+                    /> */}
+                </Pressable>}
                 renderItem={({ item: post }) =>
 
                     <Post post={post} key={post.id} />

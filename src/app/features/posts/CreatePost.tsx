@@ -12,8 +12,8 @@ import {
 import { useEffect, useState } from "react";
 import { useDispatch } from 'react-redux';
 import { createPost } from './postsSlice';
+import { nanoid } from '@reduxjs/toolkit';
 //import { Entypo } from "@expo/vector-icons";
-//import { v4 as uuidv4 } from "uuid";
 
 const userImage = "../../../../assets/dummy_img/user.png"
 
@@ -30,17 +30,18 @@ const CreatePost = () => {
     }, []);
 
     const onSubmit = async () => {
-        let count = 4
-        const newPost = {
-            id: count++,
-            title,
-            content: description,
+        if (title && description) {
 
-        };
+            dispatch(createPost({
+                content: description,
+                title,
 
-        dispatch(createPost(newPost))
-        setDescription("");
-        setTitle("")
+
+            }))
+            setDescription("");
+            setTitle("")
+        }
+
 
     };
 
@@ -81,7 +82,7 @@ const CreatePost = () => {
 
 
             <View style={styles.buttonContainer}>
-                <Button title="Post" onPress={onSubmit} />
+                <Button title="Post" onPress={onSubmit}  />
             </View>
         </KeyboardAvoidingView>
     );
