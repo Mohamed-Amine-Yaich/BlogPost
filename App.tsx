@@ -30,6 +30,9 @@ import {
 import { Counter } from './src/app/features/counter/Counter';
 import PostsList from './src/app/features/posts/postsList';
 import CreatePost from './src/app/features/posts/CreatePost';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SCREENS } from './constant/constants';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -68,18 +71,24 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+
+  const Stack = createNativeStackNavigator();
+
   return (
 
 
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name={SCREENS.FEED_SCREEN.name} options={{ title: ' Posts List' }} component={PostsList} />
+        <Stack.Screen name={SCREENS.CREATE_POST_SCREEN.name} options={{ title: ' Create Post' }} component={CreatePost} />
+      </Stack.Navigator>
+    </NavigationContainer>
 
-    <ScrollView
-    >
-      <CreatePost />
-
-      <PostsList />
 
 
-    </ScrollView>
+
+
+
 
 
 
