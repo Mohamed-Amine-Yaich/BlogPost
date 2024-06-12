@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../../store'
 
 export interface PostsState {
@@ -33,15 +33,10 @@ export const postsSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        /*  addPosts: (state) => {
-           
-         },
-         decrement: (state) => {
-             state.value -= 1
-         },
-         incrementByAmount: (state, action: PayloadAction<number>) => {
-             state.value += action.payload
-         } */
+        createPost: (state, action: PayloadAction<PostsState>) => {
+            state.push(action.payload)
+        },
+
     }
 
 })
@@ -50,7 +45,7 @@ export const postsSlice = createSlice({
 // Action creators are generated for each case reducer function
 
 
-export const { } = postsSlice.actions
+export const { createPost } = postsSlice.actions
 
 export const selectAllPosts = (state: RootState) => state.posts
 

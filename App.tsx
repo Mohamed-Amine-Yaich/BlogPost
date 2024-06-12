@@ -29,6 +29,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import { Counter } from './src/app/features/counter/Counter';
 import PostsList from './src/app/features/posts/postsList';
+import CreatePost from './src/app/features/posts/CreatePost';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -71,11 +72,14 @@ function App(): React.JSX.Element {
 
 
 
-    <>
-      <PostsList />
-    
+    <ScrollView
+    >
+      <CreatePost />
 
-    </>
+      <PostsList />
+
+
+    </ScrollView>
 
 
 
