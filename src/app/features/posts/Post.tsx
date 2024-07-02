@@ -45,6 +45,9 @@ const Post = ({ post }: PostProps) => {
             </TouchableOpacity>
 
             {/* Body */}
+            {post.title && (
+                <Text style={styles.description}>{post.title}</Text>
+            )}
             {post.content && (
                 <Text style={styles.description}>{post.content}</Text>
             )}

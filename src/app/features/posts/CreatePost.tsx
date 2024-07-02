@@ -5,9 +5,9 @@ import {
     View,
     Image,
     TextInput,
-    Button,
     KeyboardAvoidingView,
     Platform,
+    TouchableOpacity,
 } from "react-native";
 import { useEffect, useState } from "react";
 import { useDispatch } from 'react-redux';
@@ -81,9 +81,9 @@ const CreatePost = () => {
             />
 
 
-            <View style={styles.buttonContainer}>
-                <Button title="Post" onPress={onSubmit}  />
-            </View>
+            <TouchableOpacity onPress={onSubmit} style={styles.button}>
+                <Text style={styles.buttonText}>Post</Text>
+            </TouchableOpacity>
         </KeyboardAvoidingView>
     );
 };
@@ -119,6 +119,15 @@ const styles = StyleSheet.create({
     buttonContainer: {
         marginTop: "auto",
 
+    },
+    button: {
+        padding: 10,
+        backgroundColor: 'blue',
+        borderRadius: 5,
+    },
+    buttonText: {
+        color: 'white',
+        textAlign: 'center',
     },
     icon: {
         marginLeft: "auto",
