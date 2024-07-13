@@ -21,7 +21,6 @@ const PostsList = (props: PostsListProps) => {
     }
 
     const posts = useSelector((state: RootState) => state.posts)
-
     const oldContent = posts.map(post => (
         <Post post={post} key={post.id} />
     ))
@@ -45,7 +44,7 @@ const PostsList = (props: PostsListProps) => {
                 </Pressable>}
                 renderItem={({ item: post }) =>
 
-                    <Post post={post} key={post.id} />
+                    <Post post={post} key={post.id}  />
 
 
                 }

@@ -5,6 +5,7 @@ export interface PostsState {
     id: number,
     title: string,
     content: string,
+    userId?:number
 }
 
 const initialState: PostsState[] = [
@@ -12,18 +13,21 @@ const initialState: PostsState[] = [
     {
         id: 0,
         title: 'React native',
-        content: 'mastering react native step by step'
+        content: 'mastering react native step by step',
+
 
     },
     {
         id: 1,
         title: 'hello',
         content: 'hello from the other side',
+
     },
     {
         id: 2,
         title: 'coffe',
         content: 'this coffe is awsome',
+
     }
 
 ]
@@ -34,17 +38,19 @@ export const postsSlice = createSlice({
     initialState,
     reducers: {
         createPost: {
-            prepare: ({ title, content }: { title: string, content: string }) => {
+            prepare: ({ title, content, userId }: { title: string, content: string, userId?: number }) => {
                 return {
                     payload: {
-                        id: parseInt(nanoid()),
+                        id: parseInt(nanoid(3)),
                         title,
-                        content
+                        content,
+                        userId
                     }
                 }
 
             },
             reducer: (state, action: PayloadAction<PostsState>) => {
+                
                 state.push(action.payload)
             },
 
