@@ -2,6 +2,8 @@
 
 import * as React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { selectAllUsers } from '../users/usersSlice';
+import { useSelector } from 'react-redux';
 
 const userImage = "../../../../assets/dummy_img/user.png"
 const LikeImage = "../../../../assets/dummy_img/like.png"
@@ -11,14 +13,15 @@ interface PostProps {
     post: {
         id: number,
         title: string,
-        content: string
+        content: string,
+        userId?: number
     }
 }
 
 const Post = ({ post }: PostProps) => {
     const [isLiked, setIsLiked] = React.useState(false)
-
-
+    const users = useSelector(selectAllUsers)
+    const author = users.find(user => user.id === post.userId)
 
     return (
         <View style={styles.post} key={post.id}
@@ -32,8 +35,8 @@ const Post = ({ post }: PostProps) => {
 
                 <Image source={require(userImage)} style={styles.profileImage} />
 
-                <View>
-                    <Text style={styles.name}> user name</Text>
+                <View>{/* author and date sections */}
+                    <Text style={styles.name}>{author ? author.name : 'unkown'} </Text>
                     <Text style={styles.subtitle}>2024/06/1</Text>
                 </View>
                 {/*                 <Entypo
@@ -51,8 +54,6 @@ const Post = ({ post }: PostProps) => {
             {post.content && (
                 <Text style={styles.description}>{post.content}</Text>
             )}
-
-
 
             {/* Footer */}
             <View style={styles.footer}>
