@@ -1,11 +1,13 @@
 import { PayloadAction, createSlice, nanoid } from '@reduxjs/toolkit'
 import { RootState } from '../../store'
+import { sub } from 'date-fns'
 
 export interface PostsState {
     id: number,
     title: string,
     content: string,
-    userId?:number
+    userId?: number,
+    date: string
 }
 
 const initialState: PostsState[] = [
@@ -14,6 +16,7 @@ const initialState: PostsState[] = [
         id: 0,
         title: 'React native',
         content: 'mastering react native step by step',
+        date: sub(new Date(), { minutes: 10 }).toISOString()
 
 
     },
@@ -21,12 +24,15 @@ const initialState: PostsState[] = [
         id: 1,
         title: 'hello',
         content: 'hello from the other side',
+        date: sub(new Date(), { minutes: 7 }).toISOString()
+
 
     },
     {
         id: 2,
         title: 'coffe',
         content: 'this coffe is awsome',
+        date: sub(new Date(), { minutes: 5 }).toISOString()
 
     }
 
@@ -44,13 +50,14 @@ export const postsSlice = createSlice({
                         id: parseInt(nanoid(3)),
                         title,
                         content,
-                        userId
+                        userId,
+                        date: new Date().toISOString()
                     }
                 }
 
             },
             reducer: (state, action: PayloadAction<PostsState>) => {
-                
+
                 state.push(action.payload)
             },
 

@@ -4,7 +4,9 @@ import * as React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { selectAllUsers } from '../users/usersSlice';
 import { useSelector } from 'react-redux';
-
+import { parseISO,formatDistanceToNow } from 'date-fns';
+import TimeAgo from './TimeAgo';
+import UserName from './UserName';
 const userImage = "../../../../assets/dummy_img/user.png"
 const LikeImage = "../../../../assets/dummy_img/like.png"
 
@@ -14,14 +16,15 @@ interface PostProps {
         id: number,
         title: string,
         content: string,
-        userId?: number
+        userId?: number,
+        date:string
     }
 }
 
 const Post = ({ post }: PostProps) => {
     const [isLiked, setIsLiked] = React.useState(false)
-    const users = useSelector(selectAllUsers)
-    const author = users.find(user => user.id === post.userId)
+  
+
 
     return (
         <View style={styles.post} key={post.id}
@@ -36,8 +39,8 @@ const Post = ({ post }: PostProps) => {
                 <Image source={require(userImage)} style={styles.profileImage} />
 
                 <View>{/* author and date sections */}
-                    <Text style={styles.name}>{author ? author.name : 'unkown'} </Text>
-                    <Text style={styles.subtitle}>2024/06/1</Text>
+                 <UserName userId={post.userId}/>                    
+                 <TimeAgo date={post.date}/>
                 </View>
                 {/*                 <Entypo
                 name="dots-three-horizontal"
